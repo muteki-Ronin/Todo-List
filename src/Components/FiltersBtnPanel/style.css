@@ -1,0 +1,11 @@
+.filter-btn_panel {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.active-btn {
+  color: red;
+}
+
+
