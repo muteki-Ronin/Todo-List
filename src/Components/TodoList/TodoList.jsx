@@ -2,11 +2,11 @@
 import { useSelector, useDispatch } from "react-redux";
 // COMPONENTS
 import { TodoItem } from "../TodoItem/TodoItem";
-// // SELECTORS
+// ACTIONS
+import { deleteAllTodo } from "../../store/slices/todoSlice";
+// SELECTORS
 import { selectFilters } from "../../store/selectors/selectFilters";
 import { selectTodos } from "../../store/selectors/selectTodos";
-// //ACTIONS
-import { deleteAllTodo } from "../../store/slices/todoSlice";
 // STYLE
 import "./style.css";
 

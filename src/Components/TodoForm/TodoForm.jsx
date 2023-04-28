@@ -1,7 +1,7 @@
 // CORE
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-// // ACTIONS
+// ACTIONS
 import { addTodo } from "../../store/slices/todoSlice";
 // STYLE
 import "./style.css";
