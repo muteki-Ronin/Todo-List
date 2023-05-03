@@ -3,14 +3,16 @@ import { createSlice } from "@reduxjs/toolkit";
 // CONSTS
 import { ALL } from "../consts/filtersConsts";
 
-const initialState = ALL;
+const initialState = JSON.parse(localStorage.getItem("TodoFilter")) || ALL;
 
 const filter = createSlice({
   name: "filter",
   initialState,
   reducers: {
     setFilter(state, action) {
-      return (state = action.payload);
+      const newState = action.payload;
+      localStorage.setItem("TodoFilter", JSON.stringify(newState));
+      return (state = newState);
     },
   },
 });

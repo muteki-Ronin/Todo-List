@@ -12,4 +12,8 @@ button {
   padding: 10px;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 
