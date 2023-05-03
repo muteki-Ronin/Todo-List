@@ -12,7 +12,7 @@ import "./style.css";
 
 export const TodoList = () => {
   const filter = useSelector(selectFilters);
-  const todos = useSelector((state) => selectTodos(state, filter));
+  const todos = useSelector((store) => selectTodos(store, filter));
   const dispatch = useDispatch();
 
   const handleDeleteAll = () => {

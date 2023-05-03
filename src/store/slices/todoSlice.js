@@ -1,7 +1,7 @@
 // CORE
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = JSON.parse(localStorage.getItem("TODO")) || [];
+const initialState = JSON.parse(localStorage.getItem("TodoList")) || [];
 
 const todos = createSlice({
   name: "todos",
@@ -14,14 +14,14 @@ const todos = createSlice({
         checked: false,
         edit: false,
       };
-      localStorage.setItem("TODO", JSON.stringify([...state, newTodo]));
+      localStorage.setItem("TodoList", JSON.stringify([...state, newTodo]));
       return [...state, newTodo];
     },
     checkedTodo(state, action) {
       const newState = state.map((todo) =>
         todo.id === action.payload ? { ...todo, checked: !todo.checked } : todo
       );
-      localStorage.setItem("TODO", JSON.stringify(newState));
+      localStorage.setItem("TodoList", JSON.stringify(newState));
       return newState;
     },
     editTodo(state, action) {
@@ -30,17 +30,17 @@ const todos = createSlice({
           ? { ...todo, title: action.payload.title, edit: !todo.edit }
           : todo
       );
-      localStorage.setItem("TODO", JSON.stringify(newState));
+      localStorage.setItem("TodoList", JSON.stringify(newState));
       return newState;
     },
     deleteTodo(state, action) {
       const newState = state.filter((todo) => todo.id !== action.payload);
-      localStorage.setItem("TODO", JSON.stringify(newState));
+      localStorage.setItem("TodoList", JSON.stringify(newState));
       return newState;
     },
     deleteAllTodo(state) {
       const newState = [];
-      localStorage.setItem("TODO", JSON.stringify(newState));
+      localStorage.setItem("TodoList", JSON.stringify(newState));
       return (state = newState);
     },
   },
