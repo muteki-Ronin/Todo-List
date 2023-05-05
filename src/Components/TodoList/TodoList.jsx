@@ -7,12 +7,19 @@ import { deleteAllTodo } from "../../store/slices/todoSlice";
 // SELECTORS
 import { selectFilters } from "../../store/selectors/selectFilters";
 import { selectTodos } from "../../store/selectors/selectTodos";
+import { selectAllTodos } from "../../store/selectors/selectTodos";
 // STYLE
-import "./style.css";
+import { useStyle } from "./style";
+// MUI
+import { Stack, Typography, Button, Box } from "@mui/material";
+// MUI ICONS
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 
 export const TodoList = () => {
+  const classes = useStyle();
   const filter = useSelector(selectFilters);
   const todos = useSelector((store) => selectTodos(store, filter));
+  const totalTodoslength = useSelector(selectAllTodos).length;
   const dispatch = useDispatch();
 
   const handleDeleteAll = () => {
@@ -20,8 +27,11 @@ export const TodoList = () => {
   };
 
   return (
-    <>
-      <ul>
+    <Box component="div" className={classes.container}>
+      <Typography variant="h4" component="h2">
+        {totalTodoslength ? `${filter} TODOS:` : "CREATE YOUR FIRST TODO!"}
+      </Typography>
+      <Stack spacing={2} className={classes.stack}>
         {todos.map((todoItem) => (
           <TodoItem
             key={todoItem.id}
@@ -31,12 +41,18 @@ export const TodoList = () => {
             edit={todoItem.edit}
           />
         ))}
-      </ul>
-      {todos.length > 1 ? (
-        <button className="del-all_btn" onClick={handleDeleteAll}>
-          DELETE ALL
-        </button>
-      ) : null}
-    </>
+        {todos.length > 1 ? (
+          <Button
+            variant="contained"
+            color="error"
+            size="large"
+            endIcon={<DeleteForeverIcon size="large" />}
+            onClick={handleDeleteAll}
+          >
+            DELETE ALL
+          </Button>
+        ) : null}
+      </Stack>
+    </Box>
   );
 };

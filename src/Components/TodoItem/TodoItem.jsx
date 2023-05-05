@@ -8,9 +8,16 @@ import {
   deleteTodo,
 } from "../../store/slices/todoSlice";
 // STYLE
-import "./style.css";
+import { useStyle } from "./style";
+// MUI
+import { Checkbox, TextField, IconButton, Paper, Box } from "@mui/material";
+// MUI ICONS
+import EditIcon from "@mui/icons-material/Edit";
+import EditOffIcon from "@mui/icons-material/EditOff";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 export const TodoItem = ({ id, title, checked, edit }) => {
+  const classes = useStyle();
   const [inputValue, setInputValue] = useState(title);
   const dispatch = useDispatch();
 
@@ -31,38 +38,53 @@ export const TodoItem = ({ id, title, checked, edit }) => {
   };
 
   return (
-    <li className="todo-item">
-      <label className="todo-item__label">
-        <input
-          type="checkbox"
-          onChange={handlerChecked}
-          defaultChecked={checked}
+    <Paper elevation={24} className={classes.container}>
+      <Checkbox
+        size="medium"
+        onChange={handlerChecked}
+        checked={checked}
+        disabled={edit}
+        color="error"
+        id={id}
+      />
+      {edit ? (
+        <TextField
+          type="search"
+          label="Edit"
+          value={inputValue}
+          onChange={inputChange}
+          color="warning"
+          fullWidth
         />
-        {edit ? (
-          <input
-            className="edit-input"
-            type="text"
-            value={inputValue}
-            onChange={inputChange}
-          />
-        ) : (
-          <p
-            className={
-              checked
-                ? "todo-item__desc todo-item__desc--checked"
-                : "todo-item__desc"
-            }
-          >
-            {title}
-          </p>
-        )}
-      </label>
-      <button className="edit_btn" onClick={handlerEdit}>
-        {edit ? "Save" : "Edit"}
-      </button>
-      <button className="del_btn" onClick={handlerDelete}>
-        Delete
-      </button>
-    </li>
+      ) : (
+        <Box
+          component="span"
+          className={
+            checked ? classes.title + " " + classes.checked : classes.title
+          }
+        >
+          <label htmlFor={id}>{title}</label>
+        </Box>
+      )}
+
+      <IconButton
+        aria-label="Edit todo"
+        size="large"
+        color={edit ? "success" : "warning"}
+        onClick={handlerEdit}
+        disabled={checked ? true : false}
+      >
+        {edit ? <EditOffIcon /> : <EditIcon />}
+      </IconButton>
+
+      <IconButton
+        aria-label="Delete todo"
+        size="large"
+        color="error"
+        onClick={handlerDelete}
+      >
+        <DeleteIcon />
+      </IconButton>
+    </Paper>
   );
 };

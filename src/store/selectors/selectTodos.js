@@ -13,3 +13,5 @@ export const selectTodos = (store, filter) => {
       return store.todos;
   }
 };
+
+export const selectAllTodos = (store) => store.todos;

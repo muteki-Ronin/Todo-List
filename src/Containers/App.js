@@ -1,19 +1,23 @@
 // COMPONENTS
+import { Header } from "../Components/Header/Header";
 import { TodoForm } from "../Components/TodoForm/TodoForm";
 import { FiltersBtnPanel } from "../Components/FiltersBtnPanel/FiltersBtnPanel";
 import { TodoList } from "../Components/TodoList/TodoList";
-// STYLE
-import "./style.css";
+// STYLES
+import { useStyle } from "./style";
+// MUI
+import { Container } from "@mui/material";
 
 export const App = () => {
+  const classes = useStyle();
+
   return (
-    <div className="container">
-      <h1>TODO LIST</h1>
+    <Container maxWidth="md" className={classes.container}>
+      <Header />
       <TodoForm />
       <FiltersBtnPanel />
-      <h2>Todos:</h2>
       <TodoList />
-    </div>
+    </Container>
   );
 };
 
