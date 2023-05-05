@@ -6,6 +6,7 @@ export const useStyle = createUseStyles({
     borderRadius: "15px",
     backgroundColor: "rgba(223, 224, 213, 0.2)",
     marginTop: "20px",
+    marginBottom: "20px",
     padding: "30px",
   },
 });

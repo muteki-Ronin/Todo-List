@@ -6,7 +6,7 @@ export const useStyle = createUseStyles({
     flexDirection: "row",
     alignItems: "center",
     height: "80px",
-    padding: "5px",
+    padding: "10px",
     border: "2px solid green",
     backgroundColor: "rgba(223, 224, 213, 0.5)",
   },
@@ -15,6 +15,6 @@ export const useStyle = createUseStyles({
   },
   checked: {
     textDecoration: "line-through",
-    color: "rgb(186, 27, 27)",
+    color: "rgb(227, 30, 30)",
   },
 });

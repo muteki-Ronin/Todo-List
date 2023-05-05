@@ -58,7 +58,7 @@ export const TodoItem = ({ id, title, checked, edit }) => {
         />
       ) : (
         <Box
-          component="span"
+          component="p"
           className={
             checked ? classes.title + " " + classes.checked : classes.title
           }
