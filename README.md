@@ -1,2 +1,3 @@
-# Lesson - 10
-## Homework - 8 (REFACTOR WITH REDUX TOOLKIT)
+# Todo List on React
+
+![Todo List preview image](./screenshot.jpg)

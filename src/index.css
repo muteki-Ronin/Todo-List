@@ -5,17 +5,20 @@
 }
 
 body {
-  background: radial-gradient(circle, rgba(221,251,63,1) 0%, rgba(252,70,70,1) 95%);
+  background: radial-gradient(circle, rgb(243, 235, 80) 0%, rgb(156, 49, 238) 95%);
   background-attachment: fixed;
   font-weight: bold;
+  font-style: italic;
 }
 
-h1, h2, h3, h4, h5, p {
+h1, h2, h3, h4, h5 {
   color: rgb(255, 255, 255);
-  text-shadow: 1px 1px 2px rgb(0, 0, 0);
+  text-shadow: 3px -2px 1px rgb(0, 0, 0);
 }
 
 p {
+  color: rgb(255, 255, 255);
+  text-shadow: 2px -1px 2px rgb(0, 0, 0);
   font-size: 25px;
 }
 

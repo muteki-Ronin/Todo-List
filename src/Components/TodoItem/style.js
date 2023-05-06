@@ -7,8 +7,8 @@ export const useStyle = createUseStyles({
     alignItems: "center",
     height: "80px",
     padding: "10px",
-    border: "2px solid green",
-    backgroundColor: "rgba(223, 224, 213, 0.5)",
+    border: "2px solid rgba(3, 115, 7, 0.6)",
+    backgroundColor: "rgba(235, 238, 231, 0.4)",
   },
   title: {
     flexGrow: 1,

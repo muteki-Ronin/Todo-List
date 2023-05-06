@@ -3,7 +3,7 @@ import { createUseStyles } from "react-jss";
 export const useStyle = createUseStyles({
   form: {
     padding: "10px",
-    border: "2px solid green",
+    border: "2px solid rgba(3, 115, 7, 0.6)",
     borderRadius: "5px",
     display: "flex",
     flexDirection: "row",
