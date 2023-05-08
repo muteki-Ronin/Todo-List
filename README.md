@@ -3,7 +3,7 @@
 ![Redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)
 ![MUI](https://img.shields.io/badge/Material--UI-0081CB?style=for-the-badge&logo=material-ui&logoColor=white)
 
-![Todo List preview image](./creenshot_readme.jpg)
+![Todo List preview image](./screenshot-readme.jpg)
 
 ## Getting started:
 
