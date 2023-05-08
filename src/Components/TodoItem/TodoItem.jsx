@@ -38,7 +38,14 @@ export const TodoItem = ({ id, title, checked, edit }) => {
   };
 
   return (
-    <Paper elevation={24} className={classes.container}>
+    <Paper
+      elevation={24}
+      className={
+        checked
+          ? classes.container + " " + classes.checkedContainer
+          : classes.container
+      }
+    >
       <Checkbox
         size="medium"
         onChange={handlerChecked}
@@ -60,7 +67,7 @@ export const TodoItem = ({ id, title, checked, edit }) => {
         <Box
           component="p"
           className={
-            checked ? classes.title + " " + classes.checked : classes.title
+            checked ? classes.title + " " + classes.checkedP : classes.title
           }
         >
           <label htmlFor={id}>{title}</label>

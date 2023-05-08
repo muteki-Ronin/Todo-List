@@ -31,7 +31,7 @@ export const TodoList = () => {
       <Typography variant="h4" component="h2">
         {totalTodoslength ? `${filter} TODOS:` : "CREATE YOUR FIRST TODO!"}
       </Typography>
-      <Stack spacing={2} className={classes.stack}>
+      <Stack spacing={3} className={classes.stack}>
         {todos.map((todoItem) => (
           <TodoItem
             key={todoItem.id}
