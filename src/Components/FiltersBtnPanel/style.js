@@ -7,4 +7,8 @@ export const useStyle = createUseStyles({
     flexDirection: "column",
     alignItems: "center",
   },
+  btnContainer: {
+    height: "3.2rem",
+    alignContent: "center",
+  },
 });

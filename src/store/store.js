@@ -1,6 +1,6 @@
 // CORE
 import { configureStore } from "@reduxjs/toolkit";
-// SLICES
+// REDUCERS
 import todos from "./slices/todoSlice";
 import filter from "./slices/filtersSlice";
 

@@ -11,7 +11,9 @@ import { ALL, ACTIVE, COMPLETED } from "../../store/consts/filtersConsts";
 // STYLE
 import { useStyle } from "./style";
 // MUI
-import { Box, ButtonGroup, Button } from "@mui/material";
+import { Box, ButtonGroup, Button, Badge } from "@mui/material";
+// MUI ICONS
+import ReceiptLongSharpIcon from "@mui/icons-material/ReceiptLongSharp";
 
 export const FiltersBtnPanel = () => {
   const classes = useStyle();
@@ -25,24 +27,33 @@ export const FiltersBtnPanel = () => {
 
   return (
     <Box component="div" className={classes.container}>
-      <ButtonGroup size="large" variant="contained">
+      <ButtonGroup className={classes.btnContainer} variant="contained">
         <Button
           onClick={() => dispatch(setFilter("ALL"))}
           color={filter === ALL ? "error" : "primary"}
         >
-          All todos - {allTodos}
+          All todos -
+          <Badge color="secondary" badgeContent={allTodos}>
+            <ReceiptLongSharpIcon />
+          </Badge>
         </Button>
         <Button
           onClick={() => dispatch(setFilter("ACTIVE"))}
           color={filter === ACTIVE ? "error" : "primary"}
         >
-          Active todos - {activeTodos}
+          Active todos -
+          <Badge color="secondary" badgeContent={activeTodos}>
+            <ReceiptLongSharpIcon />
+          </Badge>
         </Button>
         <Button
           onClick={() => dispatch(setFilter("COMPLETED"))}
           color={filter === COMPLETED ? "error" : "primary"}
         >
-          Completed todos - {completedTodos}
+          Completed todos -
+          <Badge color="secondary" badgeContent={completedTodos}>
+            <ReceiptLongSharpIcon />
+          </Badge>
         </Button>
       </ButtonGroup>
     </Box>

@@ -12,11 +12,13 @@ import { selectAllTodos } from "../../store/selectors/selectTodos";
 import { useStyle } from "./style";
 // MUI
 import { Stack, Typography, Button, Box } from "@mui/material";
+import { useSnackbar } from "notistack";
 // MUI ICONS
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 
 export const TodoList = () => {
   const classes = useStyle();
+  const { enqueueSnackbar } = useSnackbar();
   const filter = useSelector(selectFilters);
   const todos = useSelector((store) => selectTodos(store, filter));
   const totalTodoslength = useSelector(selectAllTodos).length;
@@ -24,6 +26,9 @@ export const TodoList = () => {
 
   const handleDeleteAll = () => {
     dispatch(deleteAllTodo());
+    enqueueSnackbar("TASKS DELETED!!!", {
+      variant: "error",
+    });
   };
 
   return (

@@ -11,6 +11,7 @@ import {
 import { useStyle } from "./style";
 // MUI
 import { Checkbox, TextField, IconButton, Paper, Box } from "@mui/material";
+import { useSnackbar } from "notistack";
 // MUI ICONS
 import EditIcon from "@mui/icons-material/Edit";
 import EditOffIcon from "@mui/icons-material/EditOff";
@@ -18,11 +19,20 @@ import DeleteIcon from "@mui/icons-material/Delete";
 
 export const TodoItem = ({ id, title, checked, edit }) => {
   const classes = useStyle();
+  const { enqueueSnackbar } = useSnackbar();
   const [inputValue, setInputValue] = useState(title);
   const dispatch = useDispatch();
 
   const handlerChecked = () => {
     dispatch(checkedTodo(id));
+
+    checked
+      ? enqueueSnackbar("TASK NOT COMPLETED!", {
+          variant: "warning",
+        })
+      : enqueueSnackbar("TASK COMPLETED!", {
+          variant: "success",
+        });
   };
 
   const inputChange = (e) => {
@@ -31,10 +41,21 @@ export const TodoItem = ({ id, title, checked, edit }) => {
 
   const handlerEdit = () => {
     dispatch(editTodo({ id: id, title: inputValue }));
+
+    edit
+      ? enqueueSnackbar("TASK SAVED!", {
+          variant: "success",
+        })
+      : enqueueSnackbar("TASK EDITED!", {
+          variant: "warning",
+        });
   };
 
   const handlerDelete = () => {
     dispatch(deleteTodo(id));
+    enqueueSnackbar("TASK DELETED!", {
+      variant: "error",
+    });
   };
 
   return (
